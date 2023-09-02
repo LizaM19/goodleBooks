@@ -1,0 +1,7 @@
+
+.bookList__list {
+    padding: 2%;
+    display: grid;
+    grid-template-columns: repeat(5, 18%);
+    gap: 2%;
+  }

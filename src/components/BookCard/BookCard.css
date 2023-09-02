@@ -1,0 +1,7 @@
+.BookCard {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1em;
+    justify-content: center;
+  }

@@ -1,10 +1,14 @@
-import { Homepage } from './page/HomePage';
+
 import "./App.css";
+import Header from "./components/Header/Header";
+import HomePage from "./page/HomePage";
 
 function App() {
-
   return (
-    <Homepage/>
+    <>
+    <Header />
+    <HomePage />
+    </>
   )
 }
 

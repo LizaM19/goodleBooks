@@ -1,9 +1,16 @@
 
-export const Homepage = () => {
 
-    return (
-        <main >
-               <h1>Vite + React</h1>
-        </main>
-    )
+import { UseGoogleAPIRecall } from '../hooks/useGoogleAPI';
+
+const HomePage = () => {
+  
+return (
+ 
+    <div>
+      <UseGoogleAPIRecall/>
+      Полученные книги
+    </div>
+  )
 }
+
+export default HomePage
