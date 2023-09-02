@@ -1,16 +1,12 @@
-
-
-import { UseGoogleAPIRecall } from '../hooks/useGoogleAPI';
+import { UseGoogleAPIRecall } from "../hooks/useGoogleAPI";
 
 const HomePage = () => {
-  
-return (
- 
+  return (
     <div>
-      <UseGoogleAPIRecall/>
+      <UseGoogleAPIRecall />
       Полученные книги
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;

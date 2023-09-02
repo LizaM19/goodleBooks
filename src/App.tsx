@@ -1,4 +1,3 @@
-
 import "./App.css";
 import Header from "./components/Header/Header";
 import HomePage from "./page/HomePage";
@@ -6,10 +5,10 @@ import HomePage from "./page/HomePage";
 function App() {
   return (
     <>
-    <Header />
-    <HomePage />
+      <Header />
+      <HomePage />
     </>
-  )
+  );
 }
 
 export default App;
