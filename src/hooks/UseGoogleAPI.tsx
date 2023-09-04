@@ -1,24 +1,22 @@
-import { useState, useEffect } from "react";
-import BooksConteiners from "../components/BooksConteiners/BooksConteiners";
+import { useEffect, useState} from "react";
 
-const UseGoogleAPIRecall = () => {
-  const [data, setBooks] = useState([]);
 
-  useState(() => {
-    fetch(
-      "https://www.googleapis.com/books/v1/volumes?q=Комнатные цветы&langRestrict=ru&maxResults=10",
-    )
-      .then((res) => res.json())
-      .then((json) => setBooks(json["items"]));
-  });
+function useGoogleAPIRecall  (paramType: string)  {
 
-  useEffect(() => {});
+    const [data, setData] = useState<any>([]);
+    const googleBooksData = async () => {
+    
+            let url = `https://www.googleapis.com/books/v1/volumes?q=${paramType}&langRestrict=ru&maxResults=10`;
+            const response = await fetch(url);
+            const responseJson = await response.json();
+            setData(responseJson.items)
+    }
 
-  return (
-    <div>
-      <BooksConteiners books={data} />
-    </div>
-  );
-};
+    useEffect(() => {
+      googleBooksData()
+  }, [])
 
-export { UseGoogleAPIRecall };
+    return { data};
+}
+
+export { useGoogleAPIRecall }

@@ -1,10 +1,16 @@
-import { UseGoogleAPIRecall } from "../hooks/useGoogleAPI";
+import BooksConteiners from "../components/BooksConteiners/BooksConteiners";
+import { useGoogleAPIRecall } from "../hooks/UseGoogleAPI";
 
-const HomePage = () => {
+interface ApiData {
+  data: any[]
+}
+
+function HomePage  (paramType: any)  {
+  const { data}: ApiData = useGoogleAPIRecall(paramType);
+
   return (
     <div>
-      <UseGoogleAPIRecall />
-      Полученные книги
+    <BooksConteiners books={data}/>
     </div>
   );
 };
