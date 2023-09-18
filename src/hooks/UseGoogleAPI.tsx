@@ -1,22 +1,17 @@
-import { useEffect, useState} from "react";
 
+import axios, { AxiosResponse } from 'axios';
+import { Root } from '../components/Data';
 
-function useGoogleAPIRecall  (paramType: string)  {
-
-    const [data, setData] = useState<any>([]);
-    const googleBooksData = async () => {
+class UseGoogleAPIRecall  {
     
-            let url = `https://www.googleapis.com/books/v1/volumes?q=${paramType}&langRestrict=ru&maxResults=10`;
-            const response = await fetch(url);
-            const responseJson = await response.json();
-            setData(responseJson.items)
-    }
-
-    useEffect(() => {
-      googleBooksData()
-  }, [])
-
-    return { data};
+  private url = `https://www.googleapis.com/books/v1/volumes`;
+      
+  public searchBooks(val: string): Promise<AxiosResponse<Root>> {
+    console.log("Watch out!!! "+ val);
+    return axios.get<Root>(this.url+"?q="+val);
 }
 
-export { useGoogleAPIRecall }
+
+}
+const useGoogleAPIRecall = new UseGoogleAPIRecall();
+export default useGoogleAPIRecall;
