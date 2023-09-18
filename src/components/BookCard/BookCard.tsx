@@ -22,7 +22,7 @@ const BookCard = ({ volumeInfo }: PropTypes) => {
   return (
     <div className="BookCard">
       <figure>
-        <img src={imgSrc} alt={title} />
+        <img src={imgSrc} alt={title} width="150%" height="100%" />
       </figure>
       <h3>{title}</h3>
       <h4>{authors}</h4>

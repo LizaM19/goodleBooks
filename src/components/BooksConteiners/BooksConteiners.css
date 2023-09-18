@@ -3,4 +3,29 @@
   display: grid;
   grid-template-columns: repeat(5, 18%);
   gap: 2%;
+  background-color: #f1f1f1;
+}
+
+.button {
+  width: 236px;
+  height: 76px;
+  font-family: Amatic SC;
+  font-size: 30px;
+  text-align: center;
+}
+
+.message {
+  width: 442px;
+  height: 76px;
+  font-family: Amatic SC;
+  font-size: 30px;
+  text-align: center;
+  border-radius: 20px;
+  border: 1px;
+  margin-right: 25px;
+}
+
+.component {
+  margin-left: auto;
+  margin-right: auto;
 }
