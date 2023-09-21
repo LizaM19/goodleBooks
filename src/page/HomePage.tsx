@@ -11,19 +11,31 @@ function HomePage() {
   const [items, setItems] = useState<Item[]>([]);
   const [message, setMessage] = useState<string>("");
   const [updated, setUpdated] = useState<string>(message);
+  const [start, setStart] = useState(1);
 
   useEffect(() => {
     if (updated) {
       store.dispatch(addedSearchResult(updated));
       useGoogleAPIRecall
-        .searchBooks(updated)
+        .searchBooks(updated, start)
         .then((res) => {
-          console.log(res.data.items);
           setItems(res.data.items);
         })
         .catch();
     }
   }, [updated]);
+
+  useEffect(() => {
+    if (start) {
+      store.dispatch(addedSearchResult(updated));
+      useGoogleAPIRecall
+        .searchBooks(updated, start)
+        .then((res) => {
+          setItems(res.data.items);
+        })
+        .catch();
+    }
+  }, [start]);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setMessage(event.target.value);
@@ -31,6 +43,21 @@ function HomePage() {
 
   const handleClick = () => {
     setUpdated(message);
+  };
+
+  const handleClickNext = () => {
+    setStart(start + 15);
+    setUpdated(message);
+  };
+
+  const handleClickBack = () => {
+    if (start < 16) {
+      setStart(0);
+      setUpdated(message);
+    } else {
+      setStart(start - 15);
+      setUpdated(message);
+    }
   };
 
   return (
@@ -48,6 +75,10 @@ function HomePage() {
         </button>
       </div>
       <div>{<BooksConteiners books={items} />}</div>
+      <div>
+        <button onClick={handleClickBack}>Назад</button>
+        <button onClick={handleClickNext}>Вперед</button>
+      </div>
     </div>
   );
 }
