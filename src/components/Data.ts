@@ -10,8 +10,6 @@ export interface Item {
   etag: string;
   selfLink: string;
   volumeInfo?: VolumeInfo;
-  saleInfo: SaleInfo;
-  accessInfo: AccessInfo;
   searchInfo: SearchInfo;
 }
 
@@ -19,13 +17,10 @@ export interface VolumeInfo {
   title: string;
   authors?: string[];
   publishedDate: string;
-  industryIdentifiers: IndustryIdentifier[];
-  readingModes: ReadingModes;
   printType: string;
   maturityRating: string;
   allowAnonLogging: boolean;
   contentVersion: string;
-  panelizationSummary: PanelizationSummary;
   imageLinks?: ImageLinks;
   language: string;
   previewLink: string;
