@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
 import useGoogleAPIRecall from "../hooks/UseGoogleAPI";
 import BooksConteiners from "../components/BooksConteiners/BooksConteiners";
-import store from "../components/Header/Search/Store";
-import { addedSearchResult } from "../components/Header/Search/SearchResultsAppState";
 import { Item } from "../components/Data";
 import "../components/Header/Header.css";
 import "../components/BooksConteiners/BooksConteiners.css";
@@ -12,14 +10,15 @@ function HomePage() {
   const [message, setMessage] = useState<string>("");
   const [updated, setUpdated] = useState<string>(message);
   const [start, setStart] = useState(1);
+  const [total, setTotal] = useState(1);
 
   useEffect(() => {
     if (updated) {
-      store.dispatch(addedSearchResult(updated));
       useGoogleAPIRecall
         .searchBooks(updated, start)
         .then((res) => {
           setItems(res.data.items);
+          setTotal(res.data.totalItems);
         })
         .catch();
     }
@@ -27,7 +26,6 @@ function HomePage() {
 
   useEffect(() => {
     if (start) {
-      store.dispatch(addedSearchResult(updated));
       useGoogleAPIRecall
         .searchBooks(updated, start)
         .then((res) => {
@@ -47,16 +45,38 @@ function HomePage() {
 
   const handleClickNext = () => {
     setStart(start + 15);
-    setUpdated(message);
   };
 
   const handleClickBack = () => {
-    if (start < 16) {
+    if (start == 15) {
       setStart(0);
-      setUpdated(message);
     } else {
       setStart(start - 15);
-      setUpdated(message);
+    }
+  };
+
+  const Button = () => {
+    if (total > 0 && total > 15) {
+      if (start > 15) {
+        return (
+          <div>
+            <button className="button" onClick={handleClickBack}>
+              Назад
+            </button>
+            <button className="button" onClick={handleClickNext}>
+              Вперед
+            </button>
+          </div>
+        );
+      } else {
+        return (
+          <div>
+            <button className="button" onClick={handleClickNext}>
+              Вперед
+            </button>
+          </div>
+        );
+      }
     }
   };
 
@@ -74,13 +94,15 @@ function HomePage() {
           Найти
         </button>
       </div>
-      <div>{<BooksConteiners books={items} />}</div>
+      {total == 0 ? (
+        <div className="text">Поиск не дал результатов. Попробуйте еще</div>
+      ) : (
+        <div> {<BooksConteiners books={items} />}</div>
+      )}
       <div>
-        <button onClick={handleClickBack}>Назад</button>
-        <button onClick={handleClickNext}>Вперед</button>
+        <Button />
       </div>
     </div>
   );
 }
-
 export default HomePage;

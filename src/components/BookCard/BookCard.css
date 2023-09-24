@@ -1,7 +1,18 @@
-.BookCard {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  padding: 1em;
-  justify-content: center;
+.bookCard {
+  height: 90%;
+  padding: 5%;
+}
+
+.link {
+  color: black;
+}
+
+a:link {
+  text-decoration: none;
+  color: black;
+}
+
+.figure {
+  width: 80%;
+  height: 70%;
 }

@@ -1,11 +1,9 @@
 export interface Root {
-  kind: string;
   totalItems: number;
   items: Item[];
 }
 
 export interface Item {
-  kind: string;
   id: string;
   etag: string;
   selfLink: string;

@@ -7,10 +7,18 @@ interface PropTypes {
 
 const BooksConteiners = ({ books }: PropTypes) => {
   return (
-    <div>
+    <div className="bookList">
       <div className="bookList__list">
         {books.map((book) => {
-          return <BookCard key={book.id} volumeInfo={book.volumeInfo} />;
+          return (
+            <div className="test">
+              <BookCard
+                key={book.id}
+                volumeInfo={book.volumeInfo}
+                book={book}
+              />
+            </div>
+          );
         })}
       </div>
     </div>

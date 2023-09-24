@@ -1,9 +1,23 @@
 .bookList__list {
-  padding: 2%;
+  padding: 3%;
   display: grid;
-  grid-template-columns: repeat(5, 18%);
+  grid-template-columns: repeat(5, 18.4%);
   gap: 2%;
+}
+
+.bookList {
   background-color: #f1f1f1;
+}
+
+.test {
+  /* display: flex;
+  flex-direction: column;  */
+  text-align: center;
+  height: 90%;
+
+  border-radius: 5px;
+  background-color: #d9d9d9;
+  margin-bottom: 10%;
 }
 
 .button {
@@ -12,6 +26,7 @@
   font-family: Amatic SC;
   font-size: 30px;
   text-align: center;
+  margin-top: 2%;
 }
 
 .message {
@@ -25,7 +40,16 @@
   margin-right: 25px;
 }
 
+.text {
+  width: 442px;
+  height: 76px;
+  font-family: Amatic SC;
+  font-size: 30px;
+  text-align: center;
+}
+
 .component {
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 2%;
 }
