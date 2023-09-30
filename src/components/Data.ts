@@ -1,39 +1,35 @@
 export interface Root {
   totalItems: number;
   items: Item[];
+  volumeInfo: VolumeInfo;
 }
 
 export interface Item {
   id: string;
   etag: string;
-  selfLink: string;
   volumeInfo?: VolumeInfo;
-  searchInfo: SearchInfo;
+}
+
+export interface About {
+  volumeInfo?: VolumeInfo;
 }
 
 export interface VolumeInfo {
   title: string;
   authors?: string[];
   publishedDate: string;
-  printType: string;
+  publisher: string;
   maturityRating: string;
   allowAnonLogging: boolean;
-  contentVersion: string;
-  imageLinks?: ImageLinks;
-  language: string;
+  imageLinks: ImageLinks;
   previewLink: string;
   infoLink: string;
   canonicalVolumeLink: string;
-  subtitle?: string;
   pageCount?: number;
   categories?: string[];
 }
 
 export interface ImageLinks {
-  smallThumbnail: string;
-  thumbnail?: string;
-}
-
-export interface SearchInfo {
-  textSnippet: string;
+  thumbnail: string;
+  medium: string;
 }

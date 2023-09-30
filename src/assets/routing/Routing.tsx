@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import App from "../../App";
-import AboutPage from "../../page/aboutPage/AboutPage";
 import { ErrorPage } from "../../error/ErrorPage";
 import HomePage from "../../page/HomePage";
+import { AboutPage } from "../../page/aboutPage/AboutPage";
 
 function Routing(): JSX.Element {
   return (
