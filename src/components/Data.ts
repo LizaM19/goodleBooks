@@ -19,12 +19,7 @@ export interface VolumeInfo {
   authors?: string[];
   publishedDate: string;
   publisher: string;
-  maturityRating: string;
-  allowAnonLogging: boolean;
   imageLinks: ImageLinks;
-  previewLink: string;
-  infoLink: string;
-  canonicalVolumeLink: string;
   pageCount?: number;
   categories?: string[];
 }

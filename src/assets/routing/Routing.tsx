@@ -3,6 +3,7 @@ import App from "../../App";
 import { ErrorPage } from "../../error/ErrorPage";
 import HomePage from "../../page/HomePage";
 import { AboutPage } from "../../page/aboutPage/AboutPage";
+import { FavoritesPage } from "../../page/favorites/FavoritesPage";
 
 function Routing(): JSX.Element {
   return (
@@ -10,6 +11,7 @@ function Routing(): JSX.Element {
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/favorites" element={<FavoritesPage />} />
         <Route index element={<HomePage />} />
         <Route path="/about/*" element={<AboutPage />} />
         <Route path="*" element={<ErrorPage />} />

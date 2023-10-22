@@ -3,7 +3,9 @@ import useGoogleAPIRecall from "../hooks/UseGoogleAPI";
 import BooksConteiners from "../components/BooksConteiners/BooksConteiners";
 import { Item } from "../components/Data";
 import "../components/Header/Header.css";
+import { VolumeInfo } from "../components/Data";
 import "../components/BooksConteiners/BooksConteiners.css";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   const [items, setItems] = useState<Item[]>([]);
@@ -40,7 +42,7 @@ function HomePage() {
   };
 
   const handleClick = () => {
-    setUpdated(message);
+    return setUpdated(message);
   };
 
   const handleClickNext = () => {
@@ -49,9 +51,9 @@ function HomePage() {
 
   const handleClickBack = () => {
     if (start == 15) {
-      setStart(0);
+      return setStart(0);
     } else {
-      setStart(start - 15);
+      return setStart(start - 15);
     }
   };
 
@@ -82,7 +84,10 @@ function HomePage() {
 
   return (
     <div>
-      <div className="component">
+      <div className="component"><button className="button">
+        <Link  className="link" to={`/favorites/`}>
+          Избранное
+        </Link></button>
         <input
           placeholder="Введите название книги или автора"
           type="text"

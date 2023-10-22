@@ -1,6 +1,7 @@
 .bookCard {
   height: 90%;
   padding: 5%;
+  position: relative;
 }
 
 .link {
@@ -15,4 +16,11 @@ a:link {
 .figure {
   width: 80%;
   height: 70%;
+}
+
+.like {
+  padding-left: 100%;
+  width: 20%;
+  height: 20%;
+  z-index: 10;
 }
